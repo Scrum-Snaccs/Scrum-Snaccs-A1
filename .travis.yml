@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - node
+  - "node"
   - 12
 
 script:
-  -npm test
-  
+  -npm test --server
