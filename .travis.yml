@@ -3,5 +3,3 @@ node_js:
   - "node"
   - 12
 
-script:
-  -npm test --server
