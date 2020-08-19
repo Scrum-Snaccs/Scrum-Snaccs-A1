@@ -3,6 +3,3 @@ node_js:
   - "node"
   - 12
 
-branches:
-  only:
-    -TravisCI-testBranch
