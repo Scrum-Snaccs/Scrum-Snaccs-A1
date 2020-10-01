@@ -40,7 +40,7 @@ class App extends React.Component {
 
     const payload = {
       title: this.state.title,
-      body: this.state.body
+      body: this.state.author
     };
 
 
