@@ -1,1 +1,0 @@
-# Scrum-Snaccs-A1
