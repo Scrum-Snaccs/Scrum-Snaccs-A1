@@ -40,12 +40,12 @@ class App extends React.Component {
 
     const payload = {
       title: this.state.title,
-      body: this.state.body
+      body: this.state.author
     };
 
 
     axios({
-      url: '/api/save',
+      url: '/api',
       method: 'POST',
       data: payload
     })
@@ -86,7 +86,7 @@ class App extends React.Component {
     //JSX
     return(
       <div className="app">
-        <h2>Welcome to the best app ever</h2>
+        <h2>snack</h2>
         <form onSubmit={this.submit}>
           <div className="form-input">
             <input 
