@@ -5,9 +5,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const BlogPostSchema = new Schema({
     title: String,
-    body: String,
-    date: {
-        type: String,
+    author: String,
+    type: String,
+    pages: String,
+    volume: String,
+    method: String,
+    participants: String,
+    year: String,
+    postdate: {
+        type: Date,
         default: Date.now()
     }
 });
