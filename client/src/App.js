@@ -8,7 +8,13 @@ class App extends React.Component {
 
   state = {
     title: '',
-    body: '',
+    author: '',
+    type: '',
+    pages: '',
+    volume: '',
+    method: '',
+    participants: '',
+    year: '',
     posts: []
   };
 
@@ -40,7 +46,13 @@ class App extends React.Component {
 
     const payload = {
       title: this.state.title,
-      body: this.state.author
+      author: this.state.author,
+      type: this.state.type,
+      pages: this.state.pages,
+      volume: this.state.volume,
+      method: this.state.method,
+      participants: this.state.participants,
+      year: this.state.year
     };
 
 
@@ -62,7 +74,7 @@ class App extends React.Component {
   resetUserInputs = () => {
     this.setState({
       title: '',
-      body: ''
+      author: ''
     });
   };
 
@@ -74,7 +86,7 @@ class App extends React.Component {
     return posts.map((post, index) => (
       <div key={index} className="blog-post__display">
         <h3>{post.title}</h3>
-        <p>{post.body}</p>
+        <p>{post.author}</p>
       </div>
     ));
   };
@@ -99,11 +111,11 @@ class App extends React.Component {
           </div>
           <div className="form-input">
             <textarea
-              placeholder="body"
-              name="body"
-              cols="30"
-              rows="10"
-              value={this.state.body}
+              placeholder="author"
+              name="author"
+              cols="5"
+              rows="5"
+              value={this.state.author}
               onChange={this.handleChange}
             >
               
