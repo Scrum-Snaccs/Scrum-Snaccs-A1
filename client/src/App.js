@@ -97,29 +97,90 @@ class App extends React.Component {
 
     //JSX
     return(
+
+
       <div className="app">
         <h2>snack</h2>
         <form onSubmit={this.submit}>
+          
           <div className="form-input">
             <input 
               type="text"
               name="title"
-              placeholder="Title"
+              placeholder="title"
               value={this.state.title}
               onChange={this.handleChange}
             />
           </div>
+
           <div className="form-input">
-            <textarea
-              placeholder="author"
+            <input 
+              type="text"
               name="author"
-              cols="5"
-              rows="5"
+              placeholder="author"
               value={this.state.author}
               onChange={this.handleChange}
-            >
-              
-            </textarea>
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="type"
+              placeholder="type"
+              value={this.state.type}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="pages"
+              placeholder="pages"
+              value={this.state.pages}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="volume"
+              placeholder="volume"
+              value={this.state.volume}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="method"
+              placeholder="method"
+              value={this.state.method}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="participants"
+              placeholder="participants"
+              value={this.state.participants}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="text"
+              name="year"
+              placeholder="year"
+              value={this.state.year}
+              onChange={this.handleChange}
+            />
           </div>
 
           <button>Submit</button>
