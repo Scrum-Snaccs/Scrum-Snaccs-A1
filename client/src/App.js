@@ -57,7 +57,7 @@ class App extends React.Component {
 
 
     axios({
-      url: '/api',
+      url: '/api/save',
       method: 'POST',
       data: payload
     })
