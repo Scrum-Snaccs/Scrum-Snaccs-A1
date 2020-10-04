@@ -74,7 +74,13 @@ class App extends React.Component {
   resetUserInputs = () => {
     this.setState({
       title: '',
-      author: ''
+      author: '',
+      type: '',
+      pages: '',
+      volume: '',
+      method: '',
+      participants: '',
+      year: ''
     });
   };
 
@@ -85,8 +91,14 @@ class App extends React.Component {
 
     return posts.map((post, index) => (
       <div key={index} className="blog-post__display">
-        <h3>{post.title}</h3>
+        <p>{post.title}</p>
         <p>{post.author}</p>
+        <p>{post.type}</p>
+        <p>{post.pages}</p>
+        <p>{post.volume}</p>
+        <p>{post.method}</p>
+        <p>{post.participants}</p>
+        <p>{post.year}</p>
       </div>
     ));
   };
