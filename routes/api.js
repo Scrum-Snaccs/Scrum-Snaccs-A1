@@ -10,7 +10,7 @@ const BlogPost = require('../models/blogPost');
 //get all
 router.get('/', async(req, res, next) => {
     try {
-        const result = await newBlogPost.find({},{__v:0});
+        const result = await BlogPost.find({},{__v:0});
         res.send(result);
     } catch (error) {
         console.log(error.message);
@@ -18,7 +18,7 @@ router.get('/', async(req, res, next) => {
 });
 
 //create new
-router.post('/', async (req, res, next) => {
+router.post('/save', async (req, res, next) => {
     try {
         const newBlogPost = new BlogPost(req.body);
         const result = await newBlogPost.save();
