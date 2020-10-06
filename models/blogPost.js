@@ -7,11 +7,11 @@ const BlogPostSchema = new Schema({
     title: String,
     author: String,
     type: String,
-    pages: String,
+    pages: Number,
     volume: String,
     method: String,
     participants: String,
-    year: String,
+    year: Number,
     postdate: {
         type: Date,
         default: Date.now()
