@@ -10,11 +10,14 @@ class App extends React.Component {
     title: '',
     author: '',
     type: '',
-    pages: '',
+    pages: 0,
     volume: '',
     method: '',
     participants: '',
-    year: '',
+    year: 2020,
+    field_1: 'any',
+    field_2: 'any',
+    field_3: 'any',
     posts: []
   };
 
@@ -33,7 +36,8 @@ class App extends React.Component {
       .catch(() => {
         alert('Error retrieving data!!!');
       });
-  }
+  };
+
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -54,8 +58,7 @@ class App extends React.Component {
       participants: this.state.participants,
       year: this.state.year
     };
-
-
+    
     axios({
       url: '/api/save',
       method: 'POST',
@@ -64,12 +67,34 @@ class App extends React.Component {
       .then(() => {
         console.log('Data has been sent to the server');
         this.resetUserInputs();
-        this.getBlogPost();
+        //this.getBlogPost();
+        alert("Success!");
       })
       .catch(() => {
         console.log('Internal server error');
-      });;
+      });
   };
+
+  search = (event) => {
+    event.preventDefault();
+    axios.get('/api/search'.concat('/',this.state.field_1,'/',this.state.field_2,'/',this.state.field_3))
+      .then((response) => {
+        const data = response.data;
+        this.setState({ posts: data });
+
+        console.log('Data has been received!!');
+      })
+      .catch(() => {
+        alert('Error retrieving data!!!');
+      });
+  };
+
+
+  findall = (event) => {
+    event.preventDefault();
+    this.getBlogPost();
+  };
+
 
   resetUserInputs = () => {
     this.setState({
@@ -83,6 +108,7 @@ class App extends React.Component {
       year: ''
     });
   };
+
 
   displayBlogPost = (posts) => {
 
@@ -103,6 +129,7 @@ class App extends React.Component {
     ));
   };
 
+
   render() {
 
     console.log('State: ', this.state);
@@ -110,9 +137,9 @@ class App extends React.Component {
     //JSX
     return(
 
-
       <div className="app">
-        <h2>snack</h2>
+        <h2>snack Submission</h2>
+        
         <form onSubmit={this.submit}>
           
           <div className="form-input">
@@ -198,12 +225,59 @@ class App extends React.Component {
           <button>Submit</button>
         </form>
 
+
+
+        <form onSubmit={this.search}>
+          
+          <div className="form-input">
+            <label for="field_1">Choose a type for search:</label>
+            <select id="field_1" name="field_1" type="field_1" value={this.state.field_1} onChange={this.handleChange}>
+              <option value="title">title</option>
+              <option value="author">author</option>
+              <option value="type">type</option>
+              <option value="pages">pages</option>
+              <option value="volume">volume</option>
+              <option value="method">method</option>
+              <option value="participants">participants</option>
+              <option value="year">year</option>
+
+            </select>
+            
+          </div>
+
+          <div className="form-input">
+          <label for="field_2">Choose operator for search:</label>
+            <select id="field_2" name="field_2" type="field_2" value={this.state.field_2} onChange={this.handleChange}>
+              <option value="any">any</option>
+              <option value="contains">contains</option>
+              <option value="is">is</option>
+              <option value="greater">greater</option>
+              <option value="smaller">smaller</option>
+
+            </select>
+          </div>
+
+          <div className="form-input">
+            <input 
+              type="field_3"
+              name="field_3"
+              placeholder="information here"
+              value={this.state.field_3}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <button>search</button>
+        </form>
+
+
         <div className="blog-">
           {this.displayBlogPost(this.state.posts)}
         </div>
+
       </div>
     );
-  }
+  };
 }
 
 
