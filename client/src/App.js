@@ -15,9 +15,9 @@ class App extends React.Component {
     method: '',
     participants: '',
     year: 2020,
-    field_1: 'any',
+    field_1: 'title',
     field_2: 'any',
-    field_3: 'any',
+    field_3: '',
     posts: []
   };
 
