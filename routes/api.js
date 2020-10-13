@@ -86,6 +86,18 @@ router.get('/', async(req, res, next) => {
 
 });
 
+router.get('/search/title/any', async(req, res, next) => {
+    try {
+
+        const result = await BlogPost.find({},{__v:0});
+        res.send(result);
+    } catch (error) {
+        console.log(error.message);
+    }
+
+
+});
+
 //create new
 router.post('/save', async (req, res, next) => {
     try {
