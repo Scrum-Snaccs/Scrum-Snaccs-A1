@@ -101,11 +101,11 @@ class App extends React.Component {
       title: '',
       author: '',
       type: '',
-      pages: 0,
-      volume: 0,
+      pages: '',
+      volume: '',
       method: '',
       participants: '',
-      year: 0
+      year: ''
     });
   };
 
