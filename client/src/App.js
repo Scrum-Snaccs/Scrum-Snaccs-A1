@@ -11,7 +11,7 @@ class App extends React.Component {
     author: '',
     type: '',
     pages: 0,
-    volume: '',
+    volume: 0,
     method: '',
     participants: '',
     year: 2020,
@@ -101,11 +101,11 @@ class App extends React.Component {
       title: '',
       author: '',
       type: '',
-      pages: '',
-      volume: '',
+      pages: 0,
+      volume: 0,
       method: '',
       participants: '',
-      year: ''
+      year: 0
     });
   };
 
