@@ -37,7 +37,7 @@ router.get('/search/:field_1/:field_2/:field_3', async(req, res, next) => {
 
         case 'smaller':
             try {
-                var query = { [field_1]: { $sm: Number(field_3) } };
+                var query = { [field_1]: { $lt: Number(field_3) } };
                 const result = await BlogPost.find(query)
                 res.send(result);
             } catch (error) {
@@ -74,7 +74,7 @@ router.get('/search/:field_1/:field_2/:field_3', async(req, res, next) => {
     
 });
 
-router.get('/test/a/:field_1/b/:field_2/c/:field_3', async(req, res, next) => {
+router.get('/', async(req, res, next) => {
         try {
  
             const result = await BlogPost.find({},{__v:0});
