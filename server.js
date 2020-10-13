@@ -4,13 +4,17 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 
+
 const app = express();
 const PORT = process.env.PORT || 8080; // Step 1
 
 const routes = require('./routes/api');
 
-// Step 2
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_youtube', {
+// connect to MongoDB atlas    mongodb+srv://BenHou:D2bNcqs12M9xvEAl@cluster0.8ugys.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongoose.connect('mongodb+srv://cluster0.8ugys.mongodb.net/', {
+    dbName: 'snackdb',
+    user: 'BenHou',
+    pass: 'D2bNcqs12M9xvEAl',
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -21,13 +25,13 @@ mongoose.connection.on('connected', () => {
 
 // Data parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // Step 3
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-}
+
+app.use(express.static('client/build'));
+
 
 
 // HTTP request logger
