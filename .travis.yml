@@ -2,14 +2,19 @@ language: node_js
 node_js:
  - "stable"
 cache:
- directories:
- - node_modules
+
+install:
+ - npm ci
+
 script:
+ - npm test
+ - npm run build
 
 deploy:
  provider: heroku 
  skip_cleanup: true
- api_key: 5eb34f9ea-232d-4a6a-a848-93b32eacf6be
- on: TravisAddition
+ api_key: $herokuKEY
+ on:
+  branch: TravisAddition
  
 
