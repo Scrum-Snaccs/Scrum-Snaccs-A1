@@ -8,7 +8,7 @@ const BlogPostSchema = new Schema({
     author: String,
     type: String,
     pages: Number,
-    volume: String,
+    volume: Number,
     method: String,
     participants: String,
     year: Number,

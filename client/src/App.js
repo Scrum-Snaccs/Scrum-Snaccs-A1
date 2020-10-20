@@ -20,13 +20,7 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path ="/submitter" exact component={Submitter}/>
         <Route path ="/moderator" exact component ={Moderator}/>
-        {/* <Route path="/" exact component={Calendar} /> */}
-        {/* <Route path="/article/role=:role" component={ArticleList} />
-        <Route path="/article/id:id" component={Article} />
-        <Route path="/user" exact component={CreateUser} />
-        <Route path="/article/submit" component={SubmitArticle} />
-        <Route path="/login" exact component={UserLogin} />
-        <Route path="/register" exact component={Register} />  */}
+       
         
       </div>
      
