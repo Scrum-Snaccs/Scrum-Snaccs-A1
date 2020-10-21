@@ -15,11 +15,4 @@ script:
   - echo 'running test'
   - mocha
 
-deploy:
- provider: heroku 
- skip_cleanup: true
- api_key: $herokuKEY
- on:
-  branch: TravisAddition
- 
 
