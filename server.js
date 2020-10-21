@@ -43,4 +43,10 @@ app.use('/api', routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
+app.get("/", (req, res, next) => {
+    res.send("Working...");
+})
+
+app.listen(5000);
+
 module.exports = app;

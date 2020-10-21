@@ -6,12 +6,12 @@ node_js:
 services:
  - MongoDB
 
-install:
- - npm ci
-
 script:
- - npm test
- - npm run build
+  - echo '***build starting***'
+  - echo 'installing dependencies'
+  - npm install
+  - echo 'running test'
+  - mocha
 
 deploy:
  provider: heroku 
