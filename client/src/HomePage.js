@@ -8,6 +8,7 @@ import './App.css';
 
 class HomePage extends React.Component {
   state = {
+    statuss: 'awaiting',
     title: '',
     author: '',
     type: '',
@@ -28,7 +29,7 @@ class HomePage extends React.Component {
 
 
   getBlogPost = () => {
-    axios.get('/api')
+    axios.get('/api/search/title/any/')
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
@@ -50,6 +51,7 @@ class HomePage extends React.Component {
     event.preventDefault();
 
     const payload = {
+      statuss: this.state.statuss,
       title: this.state.title,
       author: this.state.author,
       type: this.state.type,
@@ -99,6 +101,7 @@ class HomePage extends React.Component {
 
   resetUserInputs = () => {
     this.setState({
+      statuss: 'awaiting',
       title: '',
       author: '',
       type: '',
@@ -118,6 +121,7 @@ class HomePage extends React.Component {
 
     return posts.map((post, index) => (
       <div key={index} className="blog-post__display">
+        <p>{post.statuss}</p>
         <p>{post.title}</p>
         <p>{post.author}</p>
         <p>{post.type}</p>
@@ -228,6 +232,9 @@ class HomePage extends React.Component {
         </form>
 
  */}
+
+
+
 
         <form onSubmit={this.search}>
           

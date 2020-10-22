@@ -8,6 +8,7 @@ import './App.css';
 
 class Moderator extends React.Component {
   state = {
+    statuss: 'awaiting',
     title: '',
     author: '',
     type: '',
@@ -28,7 +29,7 @@ class Moderator extends React.Component {
 
 
   getBlogPost = () => {
-    axios.get('/api')
+    axios.get('/api/search/statuss/is/awaiting')
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
@@ -50,6 +51,7 @@ class Moderator extends React.Component {
     event.preventDefault();
 
     const payload = {
+      statuss: this.state.statuss,
       title: this.state.title,
       author: this.state.author,
       type: this.state.type,
@@ -78,7 +80,7 @@ class Moderator extends React.Component {
 
   search = (event) => {
     event.preventDefault();
-    axios.get('/api/search'.concat('/',this.state.field_1,'/',this.state.field_2,'/',this.state.field_3))
+    axios.get('/api/search/statuss/is/awaiting')
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
@@ -99,6 +101,7 @@ class Moderator extends React.Component {
 
   resetUserInputs = () => {
     this.setState({
+      statuss: 'awaiting',
       title: '',
       author: '',
       type: '',
@@ -118,6 +121,7 @@ class Moderator extends React.Component {
 
     return posts.map((post, index) => (
       <div key={index} className="blog-post__display">
+        <p>{post.statuss}</p>
         <p>{post.title}</p>
         <p>{post.author}</p>
         <p>{post.type}</p>
@@ -126,6 +130,15 @@ class Moderator extends React.Component {
         <p>{post.method}</p>
         <p>{post.participants}</p>
         <p>{post.year}</p>
+        <form action="/api/delete" method="post">
+          <input type="hidden" name="id" value = {post._id}/>
+          <button type="submit">DELETE post</button>
+        </form>
+
+        <form action="/api/update" method="post">
+          <input type="hidden" name="id" value = {post._id}/>
+          <button type="submit">approve post</button>
+        </form>
       </div>
     ));
   };
@@ -153,7 +166,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -163,7 +175,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -173,7 +184,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -183,7 +193,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -193,7 +202,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -203,7 +211,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -213,7 +220,6 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="form-input">
             <input 
               type="text"
@@ -223,53 +229,15 @@ class Moderator extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-
           <button>Submit</button>
         </form>
-
  */}
 
         <form onSubmit={this.search}>
           
-          <div className="form-input">
-            <label for="field_1">Choose a type for search:</label>
-            <select id="field_1" name="field_1" type="field_1" value={this.state.field_1} onChange={this.handleChange}>
-              {/* <option value="title">title</option>
-              <option value="author">author</option>
-              <option value="type">type</option>
-              <option value="pages">pages</option>
-              <option value="volume">volume</option>
-              <option value="method">method</option>
-              <option value="participants">participants</option>
-              <option value="year">year</option> */}
 
-            </select>
-            
-          </div>
 
-          <div className="form-input">
-          <label for="field_2">Choose operator for search:</label>
-            <select id="field_2" name="field_2" type="field_2" value={this.state.field_2} onChange={this.handleChange}>
-              <option value="any">any</option>
-              {/* <option value="contains">contains</option>
-              <option value="is">is</option>
-              <option value="greater">greater</option>
-              <option value="smaller">smaller</option> */}
-
-            </select>
-          </div>
-
-          <div className="form-input">
-            <input 
-              type="field_3"
-              name="field_3"
-              placeholder="information here"
-              value={this.state.field_3}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <button>search</button>
+          <button>refresh</button>
         </form>
 
 

@@ -9,6 +9,7 @@ import './App.css';
 class Submitter extends React.Component {
 
   state = {
+    statuss: 'awaiting',
     title: '',
     author: '',
     type: '',
@@ -52,6 +53,7 @@ class Submitter extends React.Component {
     event.preventDefault();
 
     const payload = {
+      statuss: this.state.statuss,
       title: this.state.title,
       author: this.state.author,
       type: this.state.type,
@@ -101,6 +103,7 @@ class Submitter extends React.Component {
 
   resetUserInputs = () => {
     this.setState({
+      statuss: 'awaiting',
       title: '',
       author: '',
       type: '',
@@ -120,6 +123,7 @@ class Submitter extends React.Component {
 
     return posts.map((post, index) => (
       <div key={index} className="blog-post__display">
+        <p>{post.statuss}</p>
         <p>{post.title}</p>
         <p>{post.author}</p>
         <p>{post.type}</p>
