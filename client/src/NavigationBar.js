@@ -38,12 +38,14 @@ export default class NavigationBar extends Component {
               <NavDropdown.Item href="#action/3.1">Moderator
                 <Link to="/moderator" className="nav-link"></Link>
               </NavDropdown.Item>
+              <NavDropdown.Divider />
                  
               <NavDropdown.Item href="#action/3.2">Analyst</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Admin</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">Submitter
                  <Link to="/submitter" className="nav-link"></Link>
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.5">General User</NavDropdown.Item>
         {/* <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
