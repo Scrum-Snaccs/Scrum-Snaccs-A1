@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+ - "stable"
+
+cache: npm
+
+services:
+ - MongoDB
+
+script:
+  - echo '***build starting***'
+  - echo 'installing dependencies'
+  - npm install
+  - echo 'running test'
+  - mocha
