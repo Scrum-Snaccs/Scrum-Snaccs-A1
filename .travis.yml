@@ -3,7 +3,8 @@ language: node_js
 node_js:
  - "stable"
 
-cache: npm
+ services:
+ - mongoDB
 
 script:
   - echo '***build starting***'
